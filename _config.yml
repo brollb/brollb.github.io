@@ -1,10 +1,10 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      John Otander
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+title:       Brian Broll
+email:       brian.broll@gmail.com
+author:      Brian Broll
+description: "A blog about this, that & the other"
 baseurl:     ""
-url:         "http://pixyll.com"
+url:         "http://brollb.github.io"
 date_format: "%b %-d, %Y"
 
 # Google services
@@ -20,7 +20,7 @@ ajaxify_contact_form: false
 
 # Disqus post comments
 # (leave blank to disable Disqus)
-disqus_shortname:
+disqus_shortname: brianbroll
 
 # Facebook Comments plugin
 # (leave blank to disable Facebook Comments, otherwise set it to true)
@@ -29,11 +29,11 @@ facebook_appid:
 facebook_comments_number: 10
 
 # Social icons
-github_username:
-bitbucket_username:
+github_username: brollb
+bitbucket_username: brollb
 stackoverflow_id:
-twitter_username:
-google_plus_id:
+twitter_username: brianbroll
+google_plus_id: +BrianBroll
 linkedin_username:
 angellist_username:
 medium_id:
@@ -45,9 +45,9 @@ flattr_button:
 show_sharing_icons: false
 share_text: 'Share this post!'
 # Change to 'true' to enable individual icons
-share_facebook: false
-share_twitter: false
-share_googleplus: false
+share_facebook: true
+share_twitter: true
+share_googleplus: true
 share_linkedin: false
 share_digg: false
 share_tumblr: false
