@@ -40,7 +40,7 @@ The executor servers (using a graphical interface) use [nw](nwjs.io) so our firs
 npm install -g nw
 ```
 
-### Setting up the executor server
+### Setting up the executor
 Setting up the executor worker is pretty simple. We will be installing the dependencies, creating the config, then starting it with nw:
 
 ```
