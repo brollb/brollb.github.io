@@ -16,7 +16,7 @@ Executors, in the WebGME, allow a WebGME server to post jobs to remote machines 
 Before we create our own custom executor, we should probably get the tutorial (included in the WebGME) working. The steps to get it working are:
 
 ### Install basic dependencies
-The WebGME is a nodeJS app so it is best if you have npm installed on your machine. I recommend using a version manager (such as [nvm](https://github.com/creationix/nvm)) so you can easily transition between node versions.
+The WebGME is a NodeJS app so it is best if you have npm installed on your machine. I recommend using a version manager (such as [nvm](https://github.com/creationix/nvm)) so you can easily transition between node versions.
 
 Also, the WebGME is software so you should probably use version control. In this case, we will be using git.
 
@@ -45,8 +45,11 @@ Setting up the executor worker is pretty simple. We will be installing the depen
 
 ```
 cd <WEBGME-ROOT>/src/server/middleware/worker
+
 npm install
+
 cp config_example.json config.json
+
 nw
 ```
 
