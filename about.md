@@ -1,19 +1,7 @@
 ---
 layout: page
-title: About Pixyll
+title: About Me
 permalink: /about/
 ---
 
-This Jekyll theme was crafted with <3 by [John Otander](http://johnotander.com)
-([@4lpine](https://twitter.com/4lpine)).
-
-Checkout the [Github repository](https://github.com/johnotander/pixyll) to download it,
-request a feature, report a bug, or contribute. It's free, and open source
-([MIT](http://opensource.org/licenses/MIT)).
-
-Thanks to the following:
-
-* [BASSCSS](http://basscss.com)
-* [Jekyll](http://jekyllrb.com)
-* [Refills](http://refills.bourbon.io/)
-* [Type Scale](http://type-scale.com/)
+My name is Brian Broll and I am currently pursuing my PhD at Vanderbilt University for Computer Science (specifically Software and Systems Engineering). My dissertation research is focused on extending _Snap!_ (the educational visual programming language developed at Berkeley) to support distributed systems principles, ie, allowing students to build networked apps (actually using the internet rather than simply broadcasting messages between sprites on the same computer). However, I am also interested in lowering the barrier to entry for deep learning and generally increasing productivity for software development.
