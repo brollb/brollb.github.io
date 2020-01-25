@@ -8,7 +8,7 @@ categories: general
 ## Background
 Automatic differentiation is a method for automatically evaluating the derivative of a function for a given input. It is similar to *symbolic differentiation* and *numerical differentiation*. Unlike *symbolic differentiation* which yields a function (the derivative) given some input function (the function of which we would like to take the derivative), automatic differentiation simply yields the derivative evaluated at the given input (rather than the symbolic representation of the actual derivative).
 
-*numerical differentiation* (or *finite difference approximation*) is a rather simple technique for approximating the derivative at a given point by also computing the output for inputs close to the given value and computing the slope simply.
+*Numerical differentiation* (or *finite difference approximation*) is a rather simple technique for approximating the derivative at a given point by also computing the output for inputs close to the given value and computing the slope. That is, if we want to compute the derivative at a given point, say *x*, we evaluate the function for some *x+e* where *e* is some small value and then compute the slope using *x*, *x+e*, *f(x)* and *f(x+e)*.
 
 In this post, we will be exploring automatic differentiation in [NetsBlox](https://netsblox.org), a visual blocks-based programming language.
 
