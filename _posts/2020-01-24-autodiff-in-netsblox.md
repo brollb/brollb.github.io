@@ -13,7 +13,7 @@ Automatic differentiation is a method for automatically evaluating the derivativ
 In this post, we will be exploring automatic differentiation in [NetsBlox](https://netsblox.org), a visual blocks-based programming language.
 
 ## The Basics
-Before we start, we should cover the basic idea of automatic differentiation. Essentially we will be defining functions for the basic mathematical operations which not only compute the consequence of applying the given mathematical operation but they will also construct a *computational graph*. The computational graph is a graph representation of all the mathematical operations performed on a given value. A simple example of a computation graph is given below:
+Before we start, we should cover the basic idea of automatic differentiation. Essentially we will be defining functions for the basic mathematical operations which not only compute the consequence of applying the given mathematical operation but they will also construct a *computational graph*. The computational graph is a graph representation of all the mathematical operations performed on a given value. A simple example of a computation graph computing *x(x+2)* is shown below. In the figure, operations are represented by blue nodes and operands by green nodes:
 
 <center><img src="/images/computation-graph.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
 
