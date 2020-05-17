@@ -2,7 +2,7 @@
 layout: post
 title:  "Automatic Differentiation in NetsBlox"
 date:   2020-01-24 12:55:00
-categories: general
+categories: general netsblox
 ---
 
 ## Background
