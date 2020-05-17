@@ -6,7 +6,7 @@ categories: general netsblox
 ---
 
 ## Background
-Sharing can be tough for both young children and parallel applications. In both cases, a lack of coordination can result in undesirable results. Perhaps one of the most significant challenges can occur around race conditions. A race condition (or data race) can occur when two or more agents/processes try to access the same data at the same time. This post will be focusing specifically on both high and low-level data races and will show examples in [NetsBlox](https://netsblox.org).
+Sharing can be tough for both young children and parallel applications. In both cases, a lack of coordination can result in undesirable results. Although they may be equally challenging, I will restrict this blog post to focus on the latter case. Perhaps one of the most significant challenges can occur around race conditions. A race condition (or data race) can occur when two or more agents/processes try to access the same data at the same time. This post will be focusing specifically on both high and low-level data races and will show examples in [NetsBlox](https://netsblox.org).
 
 ### Cloud Variables
 The examples shown here will be using NetsBlox's cloud variables. Cloud variables can be accessed using the RPC blocks under the *Network* tab.
