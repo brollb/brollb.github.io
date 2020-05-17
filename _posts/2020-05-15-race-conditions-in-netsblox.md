@@ -11,7 +11,7 @@ Sharing can be tough for both young children and parallel applications. In both 
 ### Cloud Variables
 The examples shown here will be using NetsBlox's cloud variables. Cloud variables can be accessed using the RPC blocks under the *Network* tab.
 
-<center><img src="/images/cloud-variables.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/cloud-variables.png" style="padding: 25px 25px 25px 25px; width: 500px"/></center>
 
 (More information about the RPCs can be accessed by right clicking the block and selecting "help.")
 
@@ -30,11 +30,11 @@ Cloud variables, on the other hand, do not have any mechanism for ensuring that 
 ## Low-level Data Races
 A *low-level data race* occurs when users try to read and write the same variable in parallel. For example, suppose we wanted to make an application to poll users for their height. We could first make a project which simply asks the users for their height and then adds it to a list stored in a cloud variable:
 
-<center><img src="/images/race-conditions/naive-height-poll.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/naive-height-poll.png" style="padding: 25px 25px 25px 25px; width: 600px"/></center>
 
 As the variable does not exist, you will likely encounter the following error: `cdr isn't a list: Variable not found`. This is easily fixed by adding some error checking:
 
-<center><img src="/images/race-conditions/naive-height-poll-check-errs.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/naive-height-poll-check-errs.png" style="padding: 25px 25px 25px 25px; width: 600px"/></center>
 
 Great! Now the program seems to work and you can add lots of heights to the list! However, if we try to have multiple people do this at once, we will encounter some issues. If you are having a hard time seeing the issue, try the following:
 - Open the project in two different browser windows
@@ -48,11 +48,11 @@ In my experience, one way to get around this when collaborating on a document is
 
 Using a *mutex*, we can now fix our programming by locking the variable that we are about to use:
 
-<center><img src="/images/race-conditions/height-poll-with-locks.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/height-poll-with-locks.png" style="padding: 25px 25px 25px 25px; width: 600px"/></center>
 
 Since we would like to minimize the amount of time we have the variable locked, we should probably move the `ask` block to be called outside of the lock - in its current state, the lock could expire if the user is slow to respond! Our final code is now:
 
-<center><img src="/images/race-conditions/height-poll.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/height-poll.png" style="padding: 25px 25px 25px 25px; width: 600px"/></center>
 
 ## High-level Data Races
 A *high-level data race* occurs when the individual programs are coordinating properly for the individual getting and setting of variables but the sequence of these accesses can still result in undesirable results. An easy example of this occurs when some data can be accessed in batch or individually as interspersing individual and batch operations could result in a blend of the final result. Consider an example in a textual programming language such as Java. Suppose we would like to set the coordinates of a point with the following functions: `setX`, `setY`, and `setXAndY`. These functions are setting shared values and are automatically acquiring a lock (ie, calling something like `lockVariable` automatically). If one user calls `setXAndY` while another calls `setX` and `setY` in parallel, the resulting X and Y values could result in a point which consists of values from each individual user (but not setting it to either specified value). Concretely, we could imagine one user wants to set the point to (1, 1) using the `setX` and `setY` functions while another user wants to set the point to (2, 2) using the `setXAndY` function. These calls could be executed as follows:
@@ -67,15 +67,15 @@ In NetsBlox, we cannot demonstrate this particular example as data cannot be sha
 
 We could start by extending the earlier application and simply duplicating the code from before to ask for the weight as well.
 
-<center><img src="/images/race-conditions/height-weight-poll.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/height-weight-poll.png" style="padding: 25px 25px 25px 25px; width: 600px"/></center>
 
 Suppose we would also like to visualize the responses and plot them. We might do so using the "Chart" service as follows (using the "Matrix Operations" and "Structured data" libraries):
 
-<center><img src="/images/race-conditions/visualize-results.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/visualize-results.png" style="padding: 25px 25px 25px 25px; width: 600px"/></center>
 
 This code results in the following figure where each point shows a given responder's height and weight:
 
-<center><img src="/images/race-conditions/figure.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/figure.png" style="padding: 25px 25px 25px 25px; width: 500px"/></center>
 
 This example demonstrates an assumption that we are making about our data: a single responder's height and weight are in the same position in each list. That is, if the first value in `heights` is 65 and we would like to know the weight for this responder, we can check the first value in `weights`. This is similar to the earlier example using points as their is an underlying relationship between the values being set. In the earlier example, we were looking at the X and Y values of a single point whereas in this example, we are considering the weight and height of a single person (given by the position in the list).
 
@@ -93,5 +93,5 @@ If we recall, the core issue arose from this relationship between these two valu
 
 The easiest fix is to simply store the values in a single variable. This will ensure that the height and weight lists will be edited together and will not get out of sync due to independent edits.
 
-<center><img src="/images/race-conditions/height-weight-poll-final.png" style="padding: 25px 25px 25px 25px; width: 300px"/></center>
+<center><img src="/images/race-conditions/height-weight-poll-final.png" style="padding: 25px 25px 25px 25px; width: 600px"/></center>
 
