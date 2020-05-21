@@ -23,9 +23,8 @@ Although it is possible to create a data race without using any networking capab
 - at the end of loops
 - during any *wait*-ing block
 - synchronous network requests
-This ensures that any data race must cross one of these boundaries (not terribly natural).
 
-Cloud variables, on the other hand, do not have any mechanism for ensuring that only one user is running at a single time (nor would we want that!). Therefore, it can be relatively easy to encounter a race condition when many users are using the same variables and not using any coordination mechanisms.
+This ensures that any data race must cross one of these boundaries (not terribly natural). Cloud variables, on the other hand, do not have any mechanism for ensuring that only one user is running at a single time (nor would we want that!). Therefore, it can be relatively easy to encounter a race condition when many users are using the same variables and not using any coordination mechanisms.
 
 ## Low-level Data Races
 A *low-level data race* occurs when users try to read and write the same variable in parallel. For example, suppose we wanted to make an application to poll users for their height. We could first make a project which simply asks the users for their height and then adds it to a list stored in a cloud variable:
