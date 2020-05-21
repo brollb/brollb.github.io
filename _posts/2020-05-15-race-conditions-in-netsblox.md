@@ -17,7 +17,7 @@ The examples shown here will be using NetsBlox's cloud variables. Cloud variable
 
 Cloud variables, as the name suggests, can be used to set variables in the cloud that can be shared across users and projects. Variables can also be password-protected to ensure that no other users or projects accidentally read or edit variable values (recommended).
 
-**Why do we need to use cloud variables? Can't we create a data race using concurrency on a local program?**
+**Why do we need to use cloud variables? Can't we create a data race in a local program?**
 
 Although it is possible to create a data race without using any networking capabilities, it is a bit challenging and the resulting examples can be a bit contrived. This is due to the concurrency model used by Scratch, Snap!, and NetsBlox. In these environments, concurrent scripts actually share a single process and simply switch between the currently executing script. This context switching occurs according to some pretty natural rules (as demonstrated by the ability to write programs without direct instruction on these mechanisms!). This includes yielding control of the current process
 - at the end of loops
