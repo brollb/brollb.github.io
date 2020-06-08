@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Intro to Race Conditions in NetsBlox"
+title:  "Intro to Race Conditions using NetsBlox"
 date:   2020-05-15 14:34:00
 categories: general netsblox
 ---
