@@ -99,16 +99,19 @@ def center(units):
 
 class EnemyDisplacement(StateBuilder):
     def __init__(self):
-        space = Box(0., 1., shape=(2,), dtype=np.float32)
+        space = Box(-1., 1., shape=(2,), dtype=np.float32)
         super().__init__(space)
 
     def from_json(self, state):
         player_units = state.units(owner=1)
         enemy_units = state.units(owner=2)
+        if len(player_units) == 0 or len(enemy_units) == 0:
+            return np.array([1, 1])
+
         max_distance = 80
         displacement = center(enemy_units) - center(player_units)
         # Normalize (and make sure we handle any states where there are no units for one team)
-        normalized_displacement = displacement/max_distance if not np.isnan(displacement/max_distance) else 1
+        normalized_displacement = displacement/max_distance
         return np.array([ min(d, 1.) for d in normalized_displacement ])
 ```
 
