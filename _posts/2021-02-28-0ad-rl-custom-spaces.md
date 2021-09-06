@@ -219,7 +219,7 @@ Then we can finish implementing `to_json`:
             return self.attack(state)
         else:
             circle_ratio = action_index/4
-            self.move(state, 2 * math.pi * circle_ratio)
+            return self.move(state, 2 * math.pi * circle_ratio)
 
     def move(self, state, angle):
         units = state.units(owner=1)
